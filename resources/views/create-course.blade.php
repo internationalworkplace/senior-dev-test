@@ -15,7 +15,7 @@
 </div>
 
 <div class="max-w-full md:flex md:justify-center sm:px-6 lg:px-8">
-    <form class="px-4 py-6 sm:p-8 w-5/5 sm:w-3/5 md:w-2/5" action="{{ route('') }}" method="POST">
+    <form class="px-4 py-6 sm:p-8 w-5/5 sm:w-3/5 md:w-2/5" action="{{ route('course.create') }}" method="POST">
         @csrf
         <div class="grid grid-cols-3 gap-4 sm:grid-cols-3">
             <div class="col-span-full">
@@ -58,6 +58,12 @@
                     <input type="text" name="title" id="title" autocomplete="off"
                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
+            </div>
+            <div class="col-span-full">
+                <button type="submit"
+                    class="bg-gradient-to-b from-[#FFB100] to-[#FF6600] flex justify-center w-full px-4 py-3 text-sm font-medium text-white border border-transparent hover:border-orange-600 hover:font-semibold focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                    Create
+                </button>
             </div>
         </div>
     </form>
