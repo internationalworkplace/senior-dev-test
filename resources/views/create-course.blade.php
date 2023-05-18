@@ -14,58 +14,8 @@
     </div>
 </div>
 
-<div class="max-w-full md:flex md:justify-center sm:px-6 lg:px-8">
-    <form class="px-4 py-6 sm:p-8 w-5/5 sm:w-3/5 md:w-2/5" action="{{ route('course.create') }}" method="POST">
-        @csrf
-        <div class="grid grid-cols-3 gap-4 sm:grid-cols-3">
-            <div class="col-span-full">
-                <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Course Title</label>
-                <div class="mt-2">
-                    <input type="text" name="title" id="title" autocomplete="off"
-                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-            </div>
-
-            <div class="col-span-full">
-                <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Course
-                    Description</label>
-                <div class="mt-2">
-                    <textarea rows="4" name="description" id="description"
-                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
-                </div>
-            </div>
-
-            <div class="col-span-full sm:col-span-3">
-                <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Trainer
-                    Name</label>
-                <div class="mt-2">
-                    <input type="text" name="last-name" id="last-name" autocomplete="family-name"
-                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-            </div>
-
-            <div class="col-span-full sm:col-span-3">
-                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Trainer Email</label>
-                <div class="mt-2">
-                    <input id="email" name="email" type="email" autocomplete="email"
-                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-            </div>
-
-            <div class="col-span-full">
-                <label for="title" class="block text-sm font-medium leading-6 text-gray-900">URL Slug</label>
-                <div class="mt-2">
-                    <input type="text" name="title" id="title" autocomplete="off"
-                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-            </div>
-            <div class="col-span-full">
-                <button type="submit"
-                    class="bg-gradient-to-b from-[#FFB100] to-[#FF6600] flex justify-center w-full px-4 py-3 text-sm font-medium text-white border border-transparent hover:border-orange-600 hover:font-semibold focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-                    Create
-                </button>
-            </div>
-        </div>
-    </form>
+<div class="max-w-full md:flex md:justify-center sm:px-6 lg:px-8 mt-4">
+    @includeUnless($trainers->isEmpty(), 'components.forms.create-course', ['trainers' => $trainers])
+    @includeWhen($trainers->isEmpty(), 'components.alert', ['message' => 'There are no available trainers.'])
 </div>
 @stop

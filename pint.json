@@ -1,0 +1,17 @@
+{
+  "preset": "per",
+  "rules": {
+    "simplified_null_return": false,
+    "trailing_comma_in_multiline": true,
+    "declare_strict_types": true
+  },
+  "exclude": [
+    "database/migrations",
+    "database/seeders",
+    "config",
+    "public",
+    "bootstrap",
+    "storage",
+    "tests"
+  ]
+}

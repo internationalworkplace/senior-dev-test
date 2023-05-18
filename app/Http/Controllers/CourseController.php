@@ -1,16 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CoursePostRequest;
+use App\Models\User;
 
 class CourseController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
-    public function __invoke(Request $request)
+    public function index()
     {
-        //
+        $trainers = User::isTrainer()->get();
+
+        return view('create-course', compact('trainers'));
+    }
+
+    public function create(CoursePostRequest $request): void
+    {
+        // Implement the save logic.
     }
 }
